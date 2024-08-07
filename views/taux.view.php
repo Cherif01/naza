@@ -55,7 +55,7 @@
                                     <tbody>
                                         <?php foreach ($ListeTaux as $data): ?>
                                             <tr>
-                                                <td class="text-bold-500"><?= $data['id']?></td>
+                                                <td class="text-bold-500"><?=$compteur++?></td>
                                                 <td><?= $data['tauxJour'] ?></td>
                                                 <td>
 

@@ -46,4 +46,4 @@ try {
     echo $error = $th->getMessage();
     die();
 }
-
+$compteur = 1;
