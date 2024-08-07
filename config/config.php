@@ -6,6 +6,6 @@ define("LINK",(($_SERVER['SERVER_PORT']==443)?'https':'http').'://'.LOCALHOST.UR
 #CONSTANTES LIEES A LA BASE DE DONNEE
 define("HOST","localhost");
 define("TYPE","mysql");
-define("DBNAME","");
+define("DBNAME","transfert");
 define("DBUSER","root");
 define("DBPASS","");

@@ -1,0 +1,11 @@
+{
+    "name": "mac/naza",
+    "description": "Application de transfert d'argent",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mac\\Naza\\": "src/"
+        }
+    },
+    "require": {}
+}

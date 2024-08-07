@@ -4,14 +4,14 @@ namespace App\modeles;
 
 class ModeleClasse
 {
-    static function getone($id, $table)
+    static function getone($ID, $table, $value)
     {
         global $connect;
-        $req = $connect->query("SELECT * FROM " . $table . " WHERE id=" . $id);
+        $req = $connect->query("SELECT * FROM " . $table . " WHERE ". $ID."=" . $value);
         $result = $req->fetch();
         return $result;
     }
-    
+
     static function getall($table)
     {
         global $connect;
@@ -31,7 +31,7 @@ class ModeleClasse
     {
         global $connect;
         $connect->query("DELETE FROM " . $table . " WHERE id=" . $id);
-    }    
+    }
 
     static function getoneByname($name, $table, $value)
     {
@@ -41,18 +41,18 @@ class ModeleClasse
         $result = $req->fetch();
         return $result;
     }
-    
+
     // Se connecter
     static function loginUser($table, $champ1, $value1, $champ2, $value2)
     {
         global $connect;
-        $req = $connect->prepare("SELECT * FROM " . $table . " WHERE " . $champ1 . "= ? AND ". $champ2."= ?");
+        $req = $connect->prepare("SELECT * FROM " . $table . " WHERE " . $champ1 . "= ? AND " . $champ2 . "= ?");
         $req->execute([$value1, $value2]);
         $result = $req->fetch();
         return $result;
     }
 
-    public static function add($table, $post): void
+    public static function add($table, $post)
     {
         $dat = [];
         $names = "";
@@ -64,6 +64,8 @@ class ModeleClasse
         global $connect;
         $req = $connect->prepare($names);
         $req->execute($dat);
+        if ($req)
+            return true;
     }
 
 

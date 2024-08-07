@@ -1,73 +1,15 @@
-#main-container {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-    padding: 20px;
-    overflow: scroll;
-    background-color: white;
-}
-
-.nav p {
-    font-family: "Roboto", sans-serif;
-    color: midnightblue;
-}
-
-.form-label {
-    font-weight: normal;
-}
-
-.form-control {
-    border: 1px solid midnightblue;
-    padding: 15px;
-}
-
-.btn-red {
-    background-color: crimson;
-    color: #FFF;
-}
-
-.btn-blue_ {
-    background-color: #4f54d1;
+#maTable thead tr{
+    background-color: rgb(31, 7, 134);
     color: white;
 }
-.btn-blue {
-    background-color: rgba(71, 71, 183, 0.799);
+#maTable thead tr th{
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(31, 7, 134);
     color: white;
+    font-weight: bolder;
+    text-transform: uppercase;
 }
-
-.btn-green {
-    background-color: rgb(5, 43, 13);
-    color: white;
+#maTable tbody tr td{
+    border: 1px solid rgb(31, 7, 134);
+    color: black;
 }
-
-.text-db{
-    color: #4f54d1;
-}
-
-form.was-validated {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-#cardTransfert .card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
-}
-
-#cardTransfert h5 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-#cardTransfert hr {
-    border: 1px solid #e0e0e0;
-}
-
-#cardTransfert .form-label {
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-
-
