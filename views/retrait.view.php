@@ -29,7 +29,7 @@
                         <div class="card-header">
                             <div class="d-flex justify-content-between flex-wrap">
                                 <div class="col text-start">
-                                    <h4 class="card-title">Gestion des agences</h4>
+                                    <h4 class="card-title">Ajouter un retrais</h4>
                                 </div>
                                 <div class="col text-end">
                                     <!-- Button trigger for Disabled Backdrop -->
@@ -74,9 +74,9 @@
         <div class="modal fade text-left" id="backdrop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
                 <div class="modal-content">
-                    <form action="" method="POST">
+                    <form action="" method="post">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="myModalLabel4">Enregistrer une nouvelle agence
+                            <h4 class="modal-title" id="myModalLabel4">Effectuer un retrait
                             </h4>
                             <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                 <i data-feather="x"></i>
@@ -85,27 +85,9 @@
                         <div class="modal-body">
                             <div class="formulaire w-100">
                                 <div class="input-group mb-3">
-                                    <input class="form-control form-control fw-bold w-100" required name="_reference" type="text" placeholder="Nom de l'agence">
+                                    <input class="form-control form-control fw-bold w-100" required name="_codeRetrait" type="text" placeholder="code du transfer">
                                 </div>
-                                <div class="input-group mb-3">
-                                    <input class="form-control form-control fw-bold w-100" required name="_adresse" type="text" placeholder="Adresse de l'agence">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <select class="form-select fw-bold" id="" name="_idPays" required>
-                                        <option selected>Choisir un pays...</option>
-                                        <option value="1">GUINEE</option>
-                                        <option value="2">CANADA</option>
-                                    </select>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <input class="form-control form-control fw-bold w-100" required name="_contact" type="number" placeholder="Numero de contact">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <select class="form-select fw-bold" id="" name="_idPays" required>
-                                        <option selected>- Gestionnaire de cette agence -</option>
-                                        <option value="0">--- Personne ---</option>
-                                    </select>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="modal-footer">
