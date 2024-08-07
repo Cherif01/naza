@@ -7,7 +7,7 @@ class ModeleClasse
     static function getone($ID, $table, $value)
     {
         global $connect;
-        $req = $connect->query("SELECT * FROM " . $table . " WHERE ". $ID."=" . $value);
+        $req = $connect->query("SELECT * FROM " . $table . " WHERE " . $ID . "=" . $value);
         $result = $req->fetch();
         return $result;
     }
@@ -27,11 +27,36 @@ class ModeleClasse
         return $result;
     }
 
-    static function delete($id, $table)
+    static function delete($name, $table, $value)
     {
         global $connect;
-        $connect->query("DELETE FROM " . $table . " WHERE id=" . $id);
+        $req = $connect->prepare("DELETE FROM " . $table . " WHERE " . $name . "= ?");
+        $req->execute([$value]);
     }
+
+    public static function update($table, $data, $whereColumn, $id): void
+    {
+        // Prepare the column placeholders
+        $columns = [];
+        $values = [];
+        foreach ($data as $column => $value) {
+            $columns[] = "$column = ?";
+            $values[] = $value;
+        }
+
+        // Add the ID to the values array
+        $values[] = $id;
+
+        // Construct the SQL query
+        $setClause = implode(", ", $columns);
+        $sql = "UPDATE $table SET $setClause WHERE $whereColumn = ?";
+
+        // Execute the query
+        global $connect;
+        $stmt = $connect->prepare($sql);
+        $stmt->execute($values);
+    }
+
 
     static function getoneByname($name, $table, $value)
     {
@@ -66,21 +91,5 @@ class ModeleClasse
         $req->execute($dat);
         if ($req)
             return true;
-    }
-
-
-    public static function update($table, $post, $id): void
-    {
-        $dat = [];
-        $names = "";
-        foreach ($post as $p => $v) {
-            array_push($dat, $v);
-            $names .= $p . "=?,";
-        }
-        array_push($dat, $id);
-        $names = "UPDATE " . $table . " SET " . substr($names, 0, -1) . "WHERE id=?";
-        global $connect;
-        $req = $connect->prepare($names);
-        $req->execute($dat);
     }
 }

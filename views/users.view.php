@@ -52,12 +52,69 @@
                                 <tbody>
                                     <?php foreach ($TabUsers as $data) : ?>
                                         <tr>
-                                            <td class="text-bold-500">01</td>
+                                            <td class="text-bold-500"><?= $data['id'] ?></td>
                                             <td><?= $data['prenom'] . ' ' . $data['nom'] ?></td>
                                             <td class="text-bold-500"><?= $data['pays'] ?></td>
                                             <td><?= $data['telephone'] ?></td>
-                                            <td><a href="#"><i class="badge-circle badge-circle-light-danger font-medium-1" data-feather="mail"></i></a></td>
+                                            <td class="">
+                                                <span class="btn" onclick="deleteAlert(<?= $data['id'] ?>, 'users/del-')">
+                                                    <i class="fas fa-trash-alt fs-4 text-danger"></i>
+                                                </span>
+                                                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editUserModal-<?= $data['id'] ?>">
+                                                    <i class="fas fa-edit fs-4 text-warning"></i>
+                                                </button>
+                                            </td>
                                         </tr>
+                                        <!-- editUser -->
+
+                                        <div class="modal fade text-left" id="editUserModal-<?= $data['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                                                <div class="modal-content">
+                                                    <form action="<?=LINK?>users/edit-<?=$data['id']?>" method="POST">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title" id="myModalLabel4">Enregistrer une nouvelle agence
+                                                            </h4>
+                                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="formulaire w-100">
+                                                                <div class="input-group mb-3">
+                                                                    <input class="form-control form-control fw-bold w-100" required name="_nom" type="text" placeholder="Pr&#233;nom de l'utilisateur" value="<?= $data['nom'] ?>">
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <input class="form-control form-control fw-bold w-100" required name="_prenom" type="text" placeholder="Nom de l'utilisateur" value="<?= $data['prenom'] ?>">
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <select class="form-select fw-bold" id="" name="_paysID" required>
+                                                                        <option selected>Choisir un pays...</option>
+                                                                        <?php foreach ($TabPays as $pays) : ?>
+                                                                            <option value="<?= $pays['id'] ?>" <?= $pays['id'] == $data['idPays'] ? 'selected' : '' ?> >  <?= $pays['pays'] ?> </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="input-group mb-3">
+                                                                    <input class="form-control form-control fw-bold w-100" required name="_telephone" type="number" placeholder="Numero de telephone" value="<?= $data['telephone'] ?>">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-danger" data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Fermer</span>
+                                                            </button>
+                                                            <button type="submit" class="btn btn-light-success ml-1">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Enregistrer</span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -90,8 +147,9 @@
                                 <div class="input-group mb-3">
                                     <select class="form-select fw-bold" id="" name="_paysID" required>
                                         <option selected>Choisir un pays...</option>
-                                        <option value="1">GUINEE</option>
-                                        <option value="2">CANADA</option>
+                                        <?php foreach ($TabPays as $pays) : ?>
+                                            <option value="<?= $pays['id'] ?>"><?= $pays['pays'] ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <div class="input-group mb-3">
