@@ -1,18 +1,26 @@
 <div id="main">
+<header class="mb-3">
+        <a href="#" class="burger-btn d-block d-xl-none">
+            <i class="bi bi-justify fs-3"></i>
+        </a>
+    </header>
 
-        <form action="" method="post" class="  w-100 d-flex flex-row gap-2 justify-content-center">
-             <div class="w-50">
-                <div class="input-group mb-3">
-                    <input class="form-control form-control fw-bold w-100" required name="_codeRetrait" type="text" placeholder="code du transfer">
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3 class="text-uppercase"><?=$page?></h3>
+                    <p class="text-subtitle text-muted">Bienvenue &#224; vous, Imran CHERIF</p>
                 </div>
-             </div>
-             <div class="">
-
-                 <button type="submit" class="btn p-0 "><i class="bi bi-search text-primary fs-2"></i></button>
-
-             </div>
-
-        </form>
+                <div class="col-12 col-md-6 order-md-2 order-first text-end">
+                    <div class="me-4">
+                        <i title="Utilisateur" class="bi bi-person-plus text-light rounded-circle bg-primary shadow p-2" style="font-size: 25px"></i>
+                        <strong> Administrateur</strong>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
     <div class="card container p-4">
     <div class="d-flex justify-content-between">
     <div class=" card shadow col-4 h-25 ">
@@ -26,36 +34,36 @@
                                 <hr>
         </div>
         <span class="card-body">
-            <span><span class="h6">Montant Envoyer: </span> <span> <?=$transfert['_montant']?> <?php if($transfert['_agenceStart']==1):
-                    echo "CAD";
-                    elseif($transfert['_agenceStart']==2):
-                        echo "GNF";
-                        endif;
-                 ?>  </span></span>
+            <span><span class="h6">Montant Envoyer: </span> <span> <?=$transfert['_montant']?> <?php if ($transfert['_agenceStart'] == 1):
+    echo "CAD";
+elseif ($transfert['_agenceStart'] == 2):
+    echo "GNF";
+endif;
+?>  </span></span>
             <hr>
             <span><span class="h6">Taux d'envoie: </span> <span><?=$transfert['_tauxTransfert']?> % </span> </span>
             <hr>
-            <span><span class="h6">Net à retirer: </span> <span> <?=$netARetirer?>  <?php if($transfert['_idAgence']==1):
-                    echo "CAD";
-                    elseif($transfert['_idAgence']==2):
-                        echo "GNF";
-                        endif;
-                 ?> </span> </span>
+            <span><span class="h6">Net à retirer: </span> <span> <?=$netARetirer?>  <?php if ($transfert['_idAgence'] == 1):
+    echo "CAD";
+elseif ($transfert['_idAgence'] == 2):
+    echo "GNF";
+endif;
+?> </span> </span>
             <hr>
-            <span><span class="h6">status: </span> 
-                <?php if($transfert['statut']==0):
-                    echo "<span class=' p-1 border-4  alert-danger'>Rejeter</span>";
-                    elseif($transfert['statut']==2):
-                        echo "<span class=' p-1 border-4  alert-success'>valider</span>";
-                        elseif($transfert['statut']==1):
-                            echo "<span class=' p-1 border-4  alert-warning'>en attente</span>";
-                        endif;
-                 ?>  </span>
+            <span><span class="h6">status: </span>
+                <?php if ($transfert['statut'] == 0):
+    echo "<span class=' p-1 border-4  alert-danger'>Rejeter</span>";
+elseif ($transfert['statut'] == 2):
+    echo "<span class=' p-1 border-4  alert-success'>valider</span>";
+elseif ($transfert['statut'] == 1):
+    echo "<span class=' p-1 border-4  alert-warning'>en attente</span>";
+endif;
+?>  </span>
         </span>
     </div>
 
     <div class="card col-4 shadow" style="height:250px">
-    <form action="" method="post" class="container">
+    <form action=""  method="post" class="container">
                         <div class="p-2">
                             <h4 class="text-center" >Confirmer un retrait
                             </h4>
@@ -70,17 +78,22 @@
                             </div>
                            <div class="formulaire w-100">
                                 <div class="input-group mb-3">
-                                    <input class="form-control form-control fw-bold w-100" required name="_codePin" type="password" placeholder="code du retrait">
+                                    <input class="form-control form-control fw-bold w-100" required name="_codePin" type="password" placeholder="code pin">
                                 </div>
 
                             </div>
+                            <?php if ($transfert['statut'] == 1): ?>
                              <button type="submit" class="btn btn-primary fs-4 "><span class=""">Valider</span> <i class="bi bi-check-circle  "></i></button>
+                             <?php endif;?>
+                             <?php if ($transfert['statut'] == 2): ?>
+                             <button type="submit" disabled class="btn btn-primary fs-4 "><span class=""">Valider</span> <i class="bi bi-check-circle  "></i></button>
+                             <?php endif;?>
 
 
                         </div>
         </form>
         </div>
-    </div>
+         </div>
     <div class="d-flex justify-content-between">
     <div class=" card shadow col-4 h-25 ">
 
@@ -121,6 +134,7 @@
             </span>
             </div>
 
+    </div>
     </div>
     </div>
     </div>

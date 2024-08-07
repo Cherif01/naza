@@ -34,7 +34,7 @@
                                 <div class="col text-end">
                                     <!-- Button trigger for Disabled Backdrop -->
                                     <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-backdrop="false" data-bs-target="#backdrop">
-                                        Ajouter une agence
+                                        Ajouter un retrait
                                     </button>
                                 </div>
                             </div>
@@ -46,22 +46,35 @@
                                 <thead>
                                     <tr>
                                         <th>N<sup>o</sup></th>
+                                        <th>Transfert</th>
                                         <th>Agence</th>
-                                        <th>Gestionnaire</th>
-                                        <th>Contact</th>
-                                        <th>Pays</th>
+                                        <th>statut</th>
                                         <th>ACTION</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="text-bold-500">01</td>
-                                        <td>$15/hr</td>
-                                        <td class="text-bold-500">UI/UX</td>
-                                        <td>Remote</td>
-                                        <td>Austin,Taxes</td>
-                                        <td><a href="#"><i class="badge-circle badge-circle-light-secondary font-medium-1" data-feather="mail"></i></a></td>
-                                    </tr>
+                                    <?php $i = 0;
+                                    foreach ($retrait as $data) : ?>
+                                        <tr>
+                                            <td class="text-bold-500"><?= ++$i ?></td>
+                                            <td class="text-bold-500"><?= $data['_idTransfert'] ?></td>
+                                            <td><?= $data['agence'] ?></td>
+                                            <td><?php if ($data['statut'] == 0) :
+                                                    echo "<span class=' p-1 border-4  alert-danger'>Rejeter</span>";
+                                                elseif ($data['statut'] == 2) :
+                                                    echo "<span class=' p-1 border-4  alert-success'>valider</span>";
+                                                elseif ($data['statut'] == 1) :
+                                                    echo "<span class=' p-1 border-4  alert-warning'>en attente</span>";
+                                                endif;
+                                                ?> </td>
+                                            <td>
+                                                <span onclick="deleteAlert(<?=$data['_idRetrait'] ?>,'retrait/delete-')">
+                                                    <i class="fas fa-trash-alt fs-4 text-danger"></i>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+
                                 </tbody>
                             </table>
                         </div>
@@ -85,9 +98,9 @@
                         <div class="modal-body">
                             <div class="formulaire w-100">
                                 <div class="input-group mb-3">
-                                    <input class="form-control form-control fw-bold w-100" required name="_codeRetrait" type="text" placeholder="code du transfer">
+                                    <input class="form-control form-control fw-bold w-100" required name="_codeRetrait" type="text" placeholder="code du retrait">
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="modal-footer">
