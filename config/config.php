@@ -8,4 +8,4 @@ define("HOST","localhost");
 define("TYPE","mysql");
 define("DBNAME","transfert");
 define("DBUSER","root");
-define("DBPASS","");
+define("DBPASS","rmdn");
