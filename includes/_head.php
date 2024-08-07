@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="<?= LINK ?>assets/css/app.css">
     <link rel="stylesheet" href="<?= LINK ?>assets/style.css">
     <link rel="shortcut icon" href="<?= LINK ?>assets/logo/spa.png" type="image/x-icon">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- TOAST-R -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
