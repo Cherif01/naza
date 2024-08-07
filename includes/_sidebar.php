@@ -73,7 +73,7 @@
         </li>
         <!-- Settings -->
         <li class="sidebar-item <?= ($page == 'settings') ? 'active' : 'sidebar-item' ?>">
-          <a href="<?= LINK ?>settings" class='sidebar-link'>
+          <a href="<?= LINK ?>taux" class='sidebar-link'>
             <i class="bi bi-grid-fill"></i>
             <span>Param&#232;tres</span>
           </a>

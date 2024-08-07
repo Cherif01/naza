@@ -17,6 +17,38 @@ function testReq_LOGIN()
    endif;
 }
 
+function __files($type){
+   if(isset($_FILES[$type]['name'])){
+
+    
+      /* Getting file name */
+      $filename = $_FILES[$type]['name'];
+   
+      /* Location */
+      $location = 'uploads/'.$filename;
+      $imageFileType = pathinfo($location, PATHINFO_EXTENSION);
+      $imageFileType = strtolower($imageFileType);
+   
+      /* Valid extensions */
+      $valid_extensions = array("jpg","jpeg","png", "pdf", "docx");
+   
+      $response = 0;
+      /* Check file extension */
+      if(in_array(strtolower($imageFileType), $valid_extensions)) {
+         /* Upload file */
+         if(move_uploaded_file($_FILES[$type]['tmp_name'],$location)){
+            $response = $location;
+         }
+      }
+   
+      echo $response;
+     return $_FILES[$type]['name'];
+   }
+   
+}
+
+
+
 function alertMsg()
 {
    if(!empty($_SESSION['error'])) : ?>
@@ -117,6 +149,10 @@ function viderchamp(){
         $$key = null;   
     }
 }
+function generateRandomCode($length = 5) {
+   return substr(bin2hex(random_bytes($length)), 0, $length);
+}
+
 
 function inputred($fild)
 {
