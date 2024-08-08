@@ -69,7 +69,7 @@
                                                     if ($value['statut'] == 0) {
                                                         echo '<span class="badge btn btn-danger disabled">rejeté</span>';
                                                     } elseif ($value['statut'] == 1) {
-                                                        echo '<span class="btn btn-warning disabled">En attente</span>';
+                                                        echo '<span class="btn btn-warning disabled">attente</span>';
                                                     } elseif ($value['statut'] == 2) {
                                                         echo '<span class="btn btn-success disabled">Payé</span>';
                                                     }
