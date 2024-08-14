@@ -78,7 +78,7 @@ if (!empty($_GET['id'])) {
     if ($explode[0] == 'del') {
         try {
             ModeleClasse::delete("_idAgence", "agence",$explode[1]);
-            $success = "agence supprimé";
+            $success = "agence supprimé avec success";
             $encodedSuccess = urlencode($success);
             header('Location: ' . LINK . 'agence?success=' . $encodedSuccess);
             exit();
@@ -89,7 +89,7 @@ if (!empty($_GET['id'])) {
         extract($_POST);
         try {
             ModeleClasse::update("agence", $_POST,"_idAgence", $explode[1]);
-            $success = "agence modifié";
+            $error = "Agence modifié";
             $encodedSuccess = urlencode($success);
             header('Location: ' . LINK . 'agence?success=' . $encodedSuccess);
             exit();

@@ -4,7 +4,16 @@
       <div class="d-flex justify-content-between">
         <div class="logo">
           <!-- <a href="#"><img src="assets/images/logo/logo.png" alt="Logo" srcset></a> -->
-           <h2 class="text-uppercase text-primary fw-bold">NAZA</h2>
+          <h4 class="text-uppercase text-primary"><?= $_SESSION['_USER_']['_prenom'] . ' ' . $_SESSION['_USER_']['_nom'] ?></h4>
+          <h5 class="text-secondary">
+            <?php if ($_SESSION['_USER_']['_paysID'] == 1) : ?>
+              <span class="me-1">🇬🇳</span>
+            <?php else : ?>
+              <span class="me-1">🇨🇦</span>
+            <?php endif; ?> | Fermer <a href="<?= LINK ?>logout"><i class="bi bi-box-arrow-right text-danger"></i>
+            </a>
+          </h5>
+          <hr>
         </div>
         <div class="toggler">
           <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -51,6 +60,12 @@
           <a href="<?= LINK ?>retrait" class='sidebar-link'>
             <i class="bi bi-grid-fill"></i>
             <span>R&#233;trait d'argent</span>
+          </a>
+        </li>
+        <li class="sidebar-item <?= ($page == 'comptabilite') ? 'active' : 'sidebar-item' ?>">
+          <a href="<?= LINK ?>comptabilite" class='sidebar-link'>
+            <i class="bi bi-grid-fill"></i>
+            <span>Comptabilit&#233;</span>
           </a>
         </li>
 

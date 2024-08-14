@@ -19,22 +19,29 @@
     <link rel="stylesheet" href="<?= LINK ?>assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="<?= LINK ?>assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="<?= LINK ?>assets/css/app.css">
-    <link rel="stylesheet" href="<?= LINK ?>assets/style.css">
+    <link rel="stylesheet" href="<?= LINK ?>/assets/style.css">
     <link rel="shortcut icon" href="<?= LINK ?>assets/logo/spa.png" type="image/x-icon">
 
     <!-- TOAST-R -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- icon -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 </head>
 
 <style>
     * {
         font-family: "Roboto", sans-serif;
-        font-weight: 400;
+        font-weight: 500;
         font-style: normal;
     }
+    .btn-light-success:hover{
+        color: aliceblue;
+    }
+    .btn-light-primary:hover{
+        color: aliceblue;
+    }
+    
 </style>
 
 <body>

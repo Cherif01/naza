@@ -1,15 +1,82 @@
-#maTable thead tr{
+#maTable thead tr {
     background-color: rgb(31, 7, 134);
     color: white;
 }
-#maTable thead tr th{
+
+#maTable thead tr th {
     border: 1px solid rgb(255, 255, 255);
     background-color: rgb(31, 7, 134);
     color: white;
     font-weight: bolder;
     text-transform: uppercase;
 }
-#maTable tbody tr td{
+
+#maTable tbody tr td {
     border: 1px solid rgb(31, 7, 134);
     color: black;
+    text-transform: capitalize;
+}
+
+/* Styles pour la carte du formulaire */
+.form-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: auto;
+    max-width: 800px;
+}
+
+/* Style pour les champs de saisie */
+input, select {
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid black;
+    color: rgb(30, 32, 30);
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border: 1px solid black;
+    color: rgb(16, 16, 90);
+    font-weight: bold;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.form-control:focus, .form-select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Style pour les groupes d'entrée */
+.input-group-text {
+    border-radius: 10px 0 0 10px;
+}
+
+/* Style pour les boutons */
+.btn {
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.btn-light-success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-light-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-light-success:hover {
+    background-color: #218838;
+}
+
+.btn-light-danger:hover {
+    background-color: #c82333;
 }

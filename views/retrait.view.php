@@ -33,8 +33,8 @@
                                 </div>
                                 <div class="col text-end">
                                     <!-- Button trigger for Disabled Backdrop -->
-                                    <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-backdrop="false" data-bs-target="#backdrop">
-                                        Ajouter un retrait
+                                    <button type="button" class="btn btn-primary block" data-bs-toggle="modal" data-bs-backdrop="false" data-bs-target="#backdrop">
+                                        Tracker un code de retrait
                                     </button>
                                 </div>
                             </div>
@@ -46,10 +46,9 @@
                                 <thead>
                                     <tr>
                                         <th>N<sup>o</sup></th>
-                                        <th>Transfert</th>
-                                        <th>Agence</th>
-                                        <th>statut</th>
-                                        <th>ACTION</th>
+                                        <th>Code</th>
+                                        <th>Agence de confirmation</th>
+                                        <th>Statut</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -57,24 +56,11 @@
                                     foreach ($retrait as $data) : ?>
                                         <tr>
                                             <td class="text-bold-500"><?= ++$i ?></td>
-                                            <td class="text-bold-500"><?= $data['_idTransfert'] ?></td>
+                                            <td class="text-bold-500"><?= $data['_codeRetrait'] ?></td>
                                             <td><?= $data['agence'] ?></td>
-                                            <td><?php if ($data['statut'] == 0) :
-                                                    echo "<span class=' p-1 border-4  alert-danger'>Rejeter</span>";
-                                                elseif ($data['statut'] == 2) :
-                                                    echo "<span class=' p-1 border-4  alert-success'>valider</span>";
-                                                elseif ($data['statut'] == 1) :
-                                                    echo "<span class=' p-1 border-4  alert-warning'>en attente</span>";
-                                                endif;
-                                                ?> </td>
-                                            <td>
-                                                <span onclick="deleteAlert(<?=$data['_idRetrait'] ?>,'retrait/delete-')">
-                                                    <i class="fas fa-trash-alt fs-4 text-danger"></i>
-                                                </span>
-                                            </td>
+                                            <td><span class="badge bg-success"><?= $data['statut'] ?></span></td>
                                         </tr>
                                     <?php endforeach; ?>
-
                                 </tbody>
                             </table>
                         </div>
@@ -98,9 +84,8 @@
                         <div class="modal-body">
                             <div class="formulaire w-100">
                                 <div class="input-group mb-3">
-                                    <input class="form-control form-control fw-bold w-100" required name="_codeRetrait" type="text" placeholder="code du retrait">
+                                    <input class="form-control p-3 form-control fw-bold w-100" required name="_codeRetrait" type="text" placeholder="Entrer le code svp !">
                                 </div>
-
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -108,9 +93,9 @@
                                 <i class="bx bx-x d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block">Fermer</span>
                             </button>
-                            <button type="submit" class="btn btn-light-success ml-1">
+                            <button type="submit" class="btn btn-outline-success ml-1">
                                 <i class="bx bx-check d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block">Enregistrer</span>
+                                <span class="d-none d-sm-block">Tracker</span>
                             </button>
                         </div>
                     </form>
